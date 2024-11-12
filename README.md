@@ -8,37 +8,73 @@ This repository provides a Google Tag Manager (GTM) custom tag template to integ
 
 ### Query Parameters
 
-- **advertiser_id**: The unique identifier for the advertiser associated with the conversion.
-- **order_id**: The unique identifier for the order or transaction.
-- **coupon_code**: The coupon code applied during the transaction.
-- **order_value** (optional): The monetary value of the transaction.
+- **advertiser_id**
+- **order_id**
+- **coupon_code**
+- **order_value** (optional)
 
 ## Google Tag Manager Template Setup
 
-1. **Import Template**: In Google Tag Manager, go to **Templates** > **Tag Templates** and import this custom tag template.
-2. **Create a New Tag**:
-   - Navigate to **Tags** > **New**.
-   - Choose the **Parceldealz Conversion Tracking Pixel** template.
-3. **Configure the Tag Fields**:
-   - Set the required fields: `advertiser_id`, `order_id`, and `coupon_code`.
-   - Optionally, you may also set `order_value`.
-4. **Set Triggers**: Add appropriate triggers to determine when the conversion tag should fire (e.g., a successful order or checkout completion).
-5. **Preview and Publish**: Use the GTM Preview mode to test the tag. Once confirmed, publish the changes.
+### Tip before you start!
 
-### Example Pixel Call
+Perform a test purchase in the Google Tag Manager Preview mode. Follow the exact steps until a transaction is finished. In the Google Tag Manager Tag Assistant you will find a summary with all the steps (pages/events) from the checkout. In each of these steps you can see which variables are available and which data is available in the datalayer. This will help you with adding the correct trigger and variables during installation of the tag.
+
+### Step 1: Add a new tag
+
+Go to "Tags", click on "New", then click on “Tag Configuration” and select “Custom Image”.
+
+![Add new tag](/img/add-tag.png)
+
+### Step 2: Provide tracking pixel URL
+
+In the Image URL field enter the following URL:
+
+```
+https://coupons.parceldealz.com/pixel?advertiser_id=XX&order_id={{order_id}}&coupon_code={{coupon_code}}&order_value={{order_value}}
+```
+
+where
+
+- `advertiser_id`: your advertiser ID. _This value is fixed and does not need to be provided by GTM Data Layer_
+- `order_id`: unique transaction or order ID. _Replace variable name inside {{}} with corresponding GTM Data Layer variable._
+- `coupon_code`: coupon/discount code used in the transaction. _Replace variable name inside {{}} with corresponding GTM Data Layer variable._
+- `order_value`: order amount (optional). _Replace variable name inside {{}} with corresponding GTM Data Layer variable._
+
+![Provide pixel URL](/img/provide-url.png)
+
+If needed variables and/or GTM Data Layer are not set up, please see [GTM documentation](https://developers.google.com/tag-platform/tag-manager/datalayer) for help with Data Layer and variable creation.
+
+### Step 3: Set the trigger
+
+**The trigger needs to only fire once on the order confirmation or thank you page.**
+
+![Set trigger](/img/choose-trigger-1.png)
+
+Select an existing trigger (if you created one previously) or build a new trigger.
+
+Trigger Type: Page View - DOM Ready or sometimes even better; Page View - Window Loaded. Event based (purchase) triggers are also a good option in some situations. _Make sure the trigger fires at the order confirmation or thank you page at the same time the order data is available in the datalayer as well._
+
+It's also possible to add a trigger based on a (custom) event or any other action. More information about Google Tag Manager Triggers [here](https://support.google.com/tagmanager/answer/7679316?hl=en).
+
+![Set trigger](/img/choose-trigger-2.png)
+
+### Step 4: Save and verify
+
+Name Tag, for example “ParcelDealz - Conversion Tag” and click the save button.
+
+Publish your edited workspace. After publishing, please contact your ParcelDealz manager for testing the conversion pixel.
+
+### Extra Tip
+
+Perform the test in the Google Tag Manager Preview mode. This way you can easily troubleshoot possible errors and also check if all (new) variables are working correctly.
+
+## Example Pixel Call
 
 Below is an example of the pixel request made by this GTM template:
 
 ```
 https://coupons.parceldealz.com/pixel?advertiser_id=123&order_id=456789&coupon_code=SAVE20&order_value=100.00
 ```
-
-## Notes
-
-- Ensure all required parameters are set and populated before firing the tag.
-- Check GTM Preview mode to verify that the tag is firing correctly and that all required parameters are passed.
-- If `order_value` is not applicable, it can be omitted from the request.
-- This pixel is designed to return a 1x1 transparent GIF.
 
 ## License
 

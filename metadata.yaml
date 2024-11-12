@@ -1,5 +1,5 @@
 homepage: "https://www.parceldealz.com"
-documentation: "https://docs.google.com/document/d/1C6pQQ2LM9lw-q2JW0TWxkUf4JHn7KtMUzmG15xr4yuo/"
+documentation: "https://github.com/Parceldealz/tracking-pixel-gtm/blob/main/README.md"
 versions:
   - sha: ccd0c17ba84dba0a115fd967becbc1bad3fad39d
     changeNotes: Initial release.
