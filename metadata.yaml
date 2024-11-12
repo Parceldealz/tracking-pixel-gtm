@@ -1,11 +1,5 @@
 homepage: "https://www.parceldealz.com"
 documentation: "https://github.com/Parceldealz/tracking-pixel-gtm/blob/main/README.md"
 versions:
-  - sha: 1a15f5f4331498f8542fc0293a45073d62ebdead
-    changeNotes: Remove JSON error from template
-  - sha: da004680434d7f868e8741706787fcea67496d3c
-    changeNotes: Bugfix in URL creation
-  - sha: 870167382bd446b5a3d157b426f1b99870a4be18
-    changeNotes: Update documentation.
-  - sha: ccd0c17ba84dba0a115fd967becbc1bad3fad39d
+  - sha: c281f735805d4133e42bbdf2d18dfc9fb373cf37
     changeNotes: Initial release.
