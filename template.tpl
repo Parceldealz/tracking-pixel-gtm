@@ -77,7 +77,7 @@ const log = require('logToConsole');
 let url = encodeUri('https://coupons.parceldealz.com/pixel?');
 
 if (getType(data.advertiserId) !== 'undefined') {
-	url += '&advertiser_id=' + encodeUriComponent(data.advertiserId.toString());
+	url += 'advertiser_id=' + encodeUriComponent(data.advertiserId.toString());
 }
 else {
 	log('GTM: advertiser_id is undefined');
@@ -139,7 +139,7 @@ ___WEB_PERMISSIONS___
           "key": "allowedUrls",
           "value": {
             "type": 1,
-            "string": "specific"
+            "string": "any"
           }
         }
       ]
