@@ -25,7 +25,7 @@ ___INFO___
   ],
   "categories": [
     "AFFILIATE_MARKETING",
-    "CONVERSION_TRACKING"
+    "CONVERSIONS"
   ]
 }
 
