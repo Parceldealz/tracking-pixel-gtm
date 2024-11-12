@@ -42,7 +42,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "POSITIVE_NUMBER"
       }
-    ],
+    ]
   },
   {
     "type": "TEXT",
@@ -143,6 +143,9 @@ ___WEB_PERMISSIONS___
           }
         }
       ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
     },
     "isRequired": true
   }
