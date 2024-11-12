@@ -1,0 +1,5 @@
+homepage: "https://www.parceldealz.com"
+documentation: "https://docs.google.com/document/d/1C6pQQ2LM9lw-q2JW0TWxkUf4JHn7KtMUzmG15xr4yuo/"
+versions:
+  - sha: 5f02a788b90ae804f86b04aa24af8937e567874a
+    changeNotes: Initial release.
